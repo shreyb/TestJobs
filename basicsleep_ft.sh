@@ -31,3 +31,5 @@ then
 fi
 
 ifdh cp -D /tmp/a /pnfs/dune/scratch/users/sbhat/
+
+echo "The return status of the last command was $?"
