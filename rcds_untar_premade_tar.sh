@@ -112,7 +112,7 @@ then
 	SECONDTARDIR=${CONDOR_DIR_INPUT}/${SECONDTESTDIR}
 	ls $SECONDTARDIR
 	echo ""
-	cat_contents ${SECONDTESTDIR}
+	cat_contents ${SECONDTARDIR}
 fi
 
 
