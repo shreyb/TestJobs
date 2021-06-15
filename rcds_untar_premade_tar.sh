@@ -87,7 +87,18 @@ setup ifdhc
 set -e 
 
 echo "Testing Rapid Code Distribution"
-TARDIR=${CONDOR_DIR_INPUT}/${TESTDIR}/${TESTDIR}
+TARDIR=${CONDOR_DIR_INPUT}/${TESTDIR}
+
+
+###TODO TAKE THIS OUT AFTER DEBUGGING
+# echo "ls -Rl ${CONDOR_DIR_INPUT}"
+# ls -Rl ${CONDOR_DIR_INPUT}
+# echo "ls -l ${CONDOR_DIR_INPUT}/${TESTDIR}"
+# ls -l ${CONDOR_DIR_INPUT}/${TESTDIR}/
+# echo "ls -Rl ${CONDOR_DIR_INPUT}/${TESTDIR}"
+# ls -Rl ${CONDOR_DIR_INPUT}/${TESTDIR}/
+# echo ""
+########
 
 ls $TARDIR
 echo ""
@@ -98,7 +109,7 @@ cat_contents ${TARDIR}
 if [[ -n ${SECONDTESTDIR+x} ]];
 then
 	echo "Second Test Dir"
-	SECONDTARDIR=${CONDOR_DIR_INPUT}/${SECONDTESTDIR}/${SECONDTESTDIR}
+	SECONDTARDIR=${CONDOR_DIR_INPUT}/${SECONDTESTDIR}
 	ls $SECONDTARDIR
 	echo ""
 	cat_contents ${SECONDTESTDIR}
