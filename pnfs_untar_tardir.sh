@@ -30,16 +30,6 @@ while (( "$#" )); do
 			EXPERIMENT=$1
 			shift
 			;;
-		--testtar)
-			shift
-			TESTTAR=$1
-			shift
-			;;
-		--secondtesttar)
-			shift
-			SECONDTESTTAR=$1
-			shift
-			;;
 		-h|--help)
 			usage
 			;;
@@ -60,11 +50,6 @@ done
 if [[ -z ${EXPERIMENT+x} ]];
 then
 	EXPERIMENT=nova
-fi
-
-if [[ -z ${TESTTAR+x} ]];
-then
-	TESTTAR=TestDir
 fi
 
 
@@ -93,24 +78,15 @@ echo "If you used -f, the tarfiles live in \$CONDOR_DIR_INPUT, but not unwound:"
 if [[ -n ${CONDOR_DIR_INPUT+x} ]];
 then
 	ls -Rl ${CONDOR_DIR_INPUT}
-	TARFILE=${CONDOR_DIR_INPUT}/${TESTTAR}
+	echo "Peek inside the tarballs"
 
-	if [[ -f $TARFILE ]];
-	then
+	for TARBALL in `find ${CONDOR_DIR_INPUT} -type f -name "*.tar"`;
+        do
+                echo "Peek inside $TARBALL"
+      		tar -tvf $TARBALL
+ 		echo ""
+	done
 
-		echo ""
-		echo "Peek inside the tarball"
-		tar -tvf $TARFILE
-		echo ""
-	fi
-
-	if [[ -n ${SECONDTESTTAR+x} ]];
-	then
-		echo "Peek inside second test tarball"
-		SECONDTARFILE=${CONDOR_DIR_INPUT}/${SECONDTESTTAR}
-		tar -tvf $SECONDTARFILE
-		echo ""
-	fi
 fi
 
 

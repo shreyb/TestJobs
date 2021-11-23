@@ -13,7 +13,7 @@
 
 function usage {
 	EXITCODE=$1
-	if [-z ${EXITCODE+x} ];
+	if [ -z ${EXITCODE+x} ];
 	then
 		EXITCODE=0
 	fi
