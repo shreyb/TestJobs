@@ -30,11 +30,6 @@ while (( "$#" )); do
 			EXPERIMENT=$1
 			shift
 			;;
-		--testtar)
-			shift
-			TESTTAR=$1
-			shift
-			;;
 		-h|--help)
 			usage
 			;;
@@ -77,7 +72,7 @@ then
 	echo "Show contents of any files in \$CONDOR_DIR_INPUT"
 	for FILE in `ls -1 ${CONDOR_DIR_INPUT}`
 	do
-		cat $FILE
+		cat ${CONDOR_DIR_INPUT}/${FILE}
 	done
 	echo ""
 fi
