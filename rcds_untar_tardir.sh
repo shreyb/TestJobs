@@ -28,10 +28,10 @@ function usage {
 
 function cat_contents {
 	DIR=$1
-	for f in `ls -1 $DIR`;
+	for f in `find $DIR -type f`;
 	do 
 		echo $f
-		cat ${DIR}/${f}
+		cat $f
 		echo ""
 	done
 }
