@@ -27,13 +27,9 @@ function usage {
 
 
 function cat_contents {
+	# For a directory, dump the file name and contents of all files contained within
 	DIR=$1
-	for f in `find $DIR -type f`;
-	do 
-		echo $f
-		cat $f
-		echo ""
-	done
+	find $DIR -type f -exec sh -c "echo {} ; cat {}; echo '""'" \;
 }
 
 # Begin main
