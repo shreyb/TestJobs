@@ -91,8 +91,13 @@ TARDIR=${CONDOR_DIR_INPUT}/${TESTDIR}
 
 
 ###TODO TAKE THIS OUT AFTER DEBUGGING
-# echo "ls -Rl ${CONDOR_DIR_INPUT}"
-# ls -Rl ${CONDOR_DIR_INPUT}
+echo "ls -Rl ${CONDOR_DIR_INPUT}"
+ls -Rl ${CONDOR_DIR_INPUT}
+echo "ls start dir"
+ls -Rl
+echo "INPUT_TAR_FILE"
+echo $INPUT_TAR_FILE 
+ls $INPUT_TAR_FILE
 # echo "ls -l ${CONDOR_DIR_INPUT}/${TESTDIR}"
 # ls -l ${CONDOR_DIR_INPUT}/${TESTDIR}/
 # echo "ls -Rl ${CONDOR_DIR_INPUT}/${TESTDIR}"
